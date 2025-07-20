@@ -191,13 +191,13 @@ object Host "Cam 1.12" {
 
 ```
 
-> **NOTE:** variable 'channel' refers to the channel name substring used in Trassir, the plugin will select the matching archive timeline based on partial match (includes), not strict equality. The 'hours' variable sets how far in the past to search for archive activity. If no activity is detected within that period, a warning is triggered.
+> **NOTE:** variable `channel` refers to the channel name substring used in Trassir, the plugin will select the matching archive timeline based on partial match (includes), not strict equality. The `hours` variable sets how far in the past to search for archive activity. If no activity is detected within that period, a warning is triggered.
 
 #### How It Works
 
 - Trassir server check is automatically assigned to DVR hosts where login credentials are set. 
-- Archive channel check is automatically created for any camera host that defines 'vars.server' and 'vars.trassir["channel"]'.
-- All variables from the DVR host are inherited via the 'vars.server' reference.
+- Archive channel check is automatically created for any camera host that defines `vars.server` and `vars.trassir["channel"]`.
+- All variables from the DVR host are inherited via the `vars.server` reference.
 
 No manual service assignment is needed - Icinga handles service linkage dynamically based on these variables.
 
