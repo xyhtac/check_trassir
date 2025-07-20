@@ -9,9 +9,9 @@ This plugin checks the health and archive status of a Trassir NVR system via its
 ### Dependencies
 
 This plugin is written in PHP and requires the following:
-- **PHP 5.3+**  
-- **PHP cURL Extension**  
-- **OpenSSL support in PHP**  
+- PHP 5.3+
+- PHP cURL Extension
+- OpenSSL support in PHP
 
 #### Install on Debian/Ubuntu:
 
