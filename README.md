@@ -1,10 +1,10 @@
-# Trassir Nagios/Icinga2 Plugin
+## Trassir Nagios/Icinga2 Plugin
 
 This plugin checks the health and archive status of a Trassir NVR system via its public API. It supports both **server health mode** and **channel archive analysis mode**, compatible with **Nagios** and **Icinga2**.
 
 ---
 
-## Dependencies
+### Dependencies
 
 This plugin is written in PHP and requires the following:
 
@@ -30,7 +30,7 @@ sudo yum install -y php php-curl openssl
 
 ---
 
-## Plugin Installation
+### Plugin Installation
 
 1. Clone the repository to your home directory:
 ```bash
@@ -53,7 +53,7 @@ sudo chown icinga:icinga /usr/lib/nagios/plugins/check_trassir.php
 ---
 
 
-## Test Run
+### Test Run
 
 #### Channel Archive Check:
 
@@ -71,7 +71,7 @@ Use the `--channel` argument to switch between modes.  If omitted, plugin runs i
 
 ---
 
-## Icinga2 Configuration
+### Icinga2 Configuration
 
 You can either:
 
@@ -86,7 +86,7 @@ sudo systemctl restart icinga2
 
 ---
 
-### Service definitions
+#### Archive channel checker definition
 add to your `services.conf`
 
 ```icinga
@@ -123,6 +123,8 @@ apply Dependency "mute-check-trassir-archive-if-server-down" to Service {
 ```
 
 ---
+#### Server checker definition
+add to your `services.conf`
 
 ```icinga
 apply Service "check-trassir-server" {
@@ -144,7 +146,7 @@ apply Service "check-trassir-server" {
 
 ---
 
-### Command Definition
+#### Command Definition
 add to your `commands.conf`
 
 ```icinga
@@ -167,23 +169,24 @@ object CheckCommand "check_trassir" {
 
 ---
 
-## License
+### License
 
 This repository is distributed under the **Apache License 2.0**.  
 See the [LICENSE](./LICENSE) file for full terms and conditions.
 
 ---
 
-## Disclaimer
+### Disclaimer
 
 This plugin is developed independently and is based on the publicly available **Trassir API SDK**, as documented at:
+https://trassir.com/software-updates/manual/sdk.html
 
-📎 https://trassir.com/software-updates/manual/sdk.html
-
-Please be aware of the following:
+```
+Please be aware of:
 - The Trassir API SDK is subject to change without prior notice by its maintainers. This may impact the compatibility or functionality of this plugin in the future.
 - This project is **not affiliated with, endorsed by, or officially supported by DSSL or Trassir**.
 - "Trassir" and its associated logos and trademarks are the **intellectual property of DSSL** (https://www.dssl.ru/). All rights to those names and marks are reserved by their respective owners.
 - The authors of this plugin **make no guarantees regarding its fitness** for any particular purpose and **are not liable for any damages** resulting from its use.
+```
 
 ---
