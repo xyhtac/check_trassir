@@ -183,6 +183,8 @@ Please be aware of:
 - "Trassir" and its associated logos and trademarks are the **intellectual property of DSSL** (https://www.dssl.ru/). All rights to those names and marks are reserved by their respective owners.
 - The authors of this plugin **make no guarantees regarding its fitness** for any particular purpose and **are not liable for any damages** resulting from its use.
 
+---
+
 ### Bugs and feature requests
 
 Please report bugs [here on Github](https://github.com/xyhtac/check_trassir/issues).
@@ -196,4 +198,4 @@ Please try to be as detailed as possible in your report.
 Feature requests are welcome. Please look for existing ones and use GitHub's "reactions" feature to vote.
 
 
----
+
