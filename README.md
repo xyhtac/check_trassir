@@ -1,4 +1,4 @@
-## Trassir Nagios/Icinga2 Plugin
+## check_trassir
 
 This plugin checks the health and archive status of a Trassir NVR system via its public API. It supports both **server health mode** and **channel archive analysis mode**, compatible with **Nagios** and **Icinga2**.
 
