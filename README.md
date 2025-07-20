@@ -6,6 +6,26 @@ This plugin checks the health and archive status of a Trassir NVR system via its
 
 ---
 
+### Execution modes
+
+#### Channel Archive Check:
+[![check_trassir performs channel check](img/check-trassir-archive.jpg)](img/check-trassir-archive.jpg "Screenshot - Channel check mode")
+
+```bash
+./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password --channel Camera-1 --hours 8 --timezone 3
+```
+
+#### Server Health Check:
+[![check_trassir performs channel check](img/check-trassir-server.jpg)](img/check-trassir-server.jpg "Screenshot - Channel trassir server")
+
+```bash
+./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
+```
+
+> **_NOTE:_** Use the `--channel` argument to switch between modes.  If omitted, plugin runs in **server mode**. Use '--debug 1' to get detailed API output.
+
+---
+
 ### Dependencies
 
 This plugin is written in PHP and requires the following:
@@ -47,25 +67,6 @@ sudo chmod 755 /usr/lib/nagios/plugins/check_trassir.php
 sudo chmod 755 /usr/lib/nagios/plugins/check_trassir.php
 sudo chown icinga:icinga /usr/lib/nagios/plugins/check_trassir.php
 ```
-
----
-
-
-### Test Run
-
-#### Channel Archive Check:
-
-```bash
-./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password --channel Camera-1 --hours 8 --timezone 3
-```
-
-#### Server Health Check:
-
-```bash
-./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
-```
-
-> **_NOTE:_** Use the `--channel` argument to switch between modes.  If omitted, plugin runs in **server mode**. Use '--debug 1' to get detailed API output.
 
 ---
 
