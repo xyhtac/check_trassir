@@ -114,7 +114,7 @@ apply Dependency "mute-check-trassir-archive-if-server-down" to Service {
 }
 ```
 
----
+
 #### Server checker definition
 add to your `services.conf`
 
@@ -136,7 +136,6 @@ apply Service "check-trassir-server" {
 }
 ```
 
----
 
 #### Command Definition
 add to your `commands.conf`
@@ -158,6 +157,8 @@ object CheckCommand "check_trassir" {
   vars.enable_perfdata = true
 }
 ```
+
+---
 
 Once the necessary Service and CheckCommand definitions are in place (see above), monitoring is enabled through host variables.
 
