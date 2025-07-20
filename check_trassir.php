@@ -8,20 +8,53 @@ https://github.com/xyhtac/check_trassir/
 Max.Fischer <dev@monologic.ru>
 Tested with Debian GNU/Linux 12 (bookworm) with Icinga v2.14.6
 
-supposed to be placed in nagios plugins directory, i.e.:
+LICENSE:
+This repository is distributed under the Apache License 2.0. See the LICENSE file for full terms and conditions.
+
+DISCLAIMER NOTICE:
+This plugin is developed independently and is based on the publicly available Trassir API SDK, as documented at:
+https://trassir.com/software-updates/manual/sdk.html
+
+Please be aware of the following:
+ - The Trassir API SDK is subject to change without prior notice by its maintainers. This may impact the compatibility or functionality of this plugin in the future.
+ - This project is not affiliated with, endorsed by, or officially supported by DSSL or Trassir.
+ - "Trassir" and its associated logos and trademarks are the intellectual property of DSSL (https://www.dssl.ru/). All rights to those names and marks are reserved by their respective owners.
+ - The authors of this plugin make no guarantees regarding its fitness for any particular purpose and are not liable for any damages resulting from its use.
+
+
+INSTALLATION:
+Plugin is supposed to be placed in Nagios plugins directory, i.e.:
 /usr/lib/nagios/plugins/check_trassir.php - CHMOD 755
 
+DEPENDENCIES:
+This plugin is written in PHP and requires the following components to function correctly:
+- PHP 5.3+ (Compatible with legacy environments; tested with 5.3 and newer)
+- cURL extension for PHP (Used to communicate with the Trassir API over HTTPS)
+- OpenSSL enabled in PHP (Required for secure HTTPS connections)
 
+For Debian/Ubuntu systems:
+> sudo apt update
+> sudo apt install -y php php-curl php-openssl
+
+For RHEL/CentOS systems:
+> sudo yum install -y php php-curl openssl
+
+
+TEST RUN:
 Check channel example:
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password --channel Camera-1 --hours 8 --timezone 3
 
 Check server example:
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
 
-if --channel is undefined the checker runs in server mode.
+Mode selection is made by setting '--channel' variable. If undefined, the checker runs in server health mode.
 
 
-// ICINGA CONFIG DEFINITIONS:
+ICINGA CONFIG DEFINITIONS:
+copy/paste following definitions yo your services.conf and commands.conf (recommended) or put conf.d/trassir-checker.conf to your conf.d
+restart of icinga2 daemon is required: 
+> systemctl restart icinga2
+
 // Trassir archive channel checker.
 //===========================
 apply Service "check-trassir-archive" {
