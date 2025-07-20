@@ -76,7 +76,6 @@ sudo chown icinga:icinga /usr/lib/nagios/plugins/check_trassir.php
 
 You can either paste the following definitions into `services.conf` and `commands.conf`, **or** place them in a dedicated file like `conf.d/trassir-checker.conf`
 
----
 
 #### Archive channel checker definition
 *add to your `services.conf`*
@@ -158,6 +157,7 @@ object CheckCommand "check_trassir" {
 }
 ```
 
+
 ---
 
 Once the necessary Service and CheckCommand definitions are in place (see above), monitoring is enabled through host variables.
@@ -176,6 +176,7 @@ object Host "TS7" {
 }
 
 ```
+
 
 #### Camera Host Configuration
 *Link the camera to the server using the vars.server variable and define channel parameters:*
