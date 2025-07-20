@@ -15,14 +15,14 @@ This plugin is written in PHP and requires the following:
 - **OpenSSL support in PHP**  
   Required for secure connections.
 
-### Install on Debian/Ubuntu:
+#### Install on Debian/Ubuntu:
 
 ```bash
 sudo apt update
 sudo apt install -y php php-curl php-openssl
 ```
 
-### Install on RHEL/CentOS:
+#### Install on RHEL/CentOS:
 
 ```bash
 sudo yum install -y php php-curl openssl
@@ -30,7 +30,7 @@ sudo yum install -y php php-curl openssl
 
 ---
 
-## Installation
+## Plugin Installation
 
 1. Clone the repository to your home directory:
 ```bash
@@ -55,13 +55,13 @@ sudo chown icinga:icinga /usr/lib/nagios/plugins/check_trassir.php
 
 ## Test Run
 
-### Channel Archive Check:
+#### Channel Archive Check:
 
 ```bash
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password --channel Camera-1 --hours 8 --timezone 3
 ```
 
-### Server Health Check:
+#### Server Health Check:
 
 ```bash
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
