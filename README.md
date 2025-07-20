@@ -63,7 +63,7 @@ sudo chown icinga:icinga /usr/lib/nagios/plugins/check_trassir.php
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
 ```
 
-Use the `--channel` argument to switch between modes.  If omitted, plugin runs in **server mode**.
+> **_NOTE:_** Use the `--channel` argument to switch between modes.  If omitted, plugin runs in **server mode**. Use '--debug 1' to get detailed API output.
 
 ---
 
