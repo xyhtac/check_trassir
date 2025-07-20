@@ -2,7 +2,7 @@
 
 This plugin checks the health and archive status of a Trassir NVR system via its public API. It supports both **server health mode** and **channel archive analysis mode**, compatible with **Nagios** and **Icinga2**.
 
-[![check_trassir-1.1](https://img.shields.io/badge/dev-check_trassir_1.1-7a00b9)](https://github.com/xyhtac/check_trassir/releases/tag/v.1.1)
+[![check_trassir-1.1](https://img.shields.io/badge/dev-check_trassir_1.11-7a00b9)](https://github.com/xyhtac/check_trassir/releases/tag/v.1.11)
 
 ---
 
