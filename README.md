@@ -7,13 +7,9 @@ This plugin checks the health and archive status of a Trassir NVR system via its
 ### Dependencies
 
 This plugin is written in PHP and requires the following:
-
 - **PHP 5.3+**  
-  Compatible with legacy environments.
 - **PHP cURL Extension**  
-  Used to communicate with the Trassir API over HTTPS.
 - **OpenSSL support in PHP**  
-  Required for secure connections.
 
 #### Install on Debian/Ubuntu:
 
@@ -73,16 +69,7 @@ Use the `--channel` argument to switch between modes.  If omitted, plugin runs i
 
 ### Icinga2 Configuration
 
-You can either:
-
-- Paste the following into `services.conf` and `commands.conf`, **or**
-- Place them in a dedicated file like `conf.d/trassir-checker.conf`
-
-Don't forget to **restart Icinga2**:
-
-```bash
-sudo systemctl restart icinga2
-```
+You can either paste the following definitions into `services.conf` and `commands.conf`, **or** place them in a dedicated file like `conf.d/trassir-checker.conf`
 
 ---
 
@@ -165,6 +152,12 @@ object CheckCommand "check_trassir" {
   }
   vars.enable_perfdata = true
 }
+```
+
+Don't forget to **restart Icinga2**:
+
+```bash
+sudo systemctl restart icinga2
 ```
 
 ---
