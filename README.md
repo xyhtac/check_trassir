@@ -79,7 +79,7 @@ You can either paste the following definitions into `services.conf` and `command
 ---
 
 #### Archive channel checker definition
-add to your `services.conf`
+*add to your `services.conf`*
 
 ```icinga
 apply Service "check-trassir-archive" {
@@ -116,7 +116,7 @@ apply Dependency "mute-check-trassir-archive-if-server-down" to Service {
 
 
 #### Server checker definition
-add to your `services.conf`
+*add to your `services.conf`*
 
 ```icinga
 apply Service "check-trassir-server" {
@@ -138,7 +138,7 @@ apply Service "check-trassir-server" {
 
 
 #### Command Definition
-add to your `commands.conf`
+*add to your `commands.conf`*
 
 ```icinga
 object CheckCommand "check_trassir" {
@@ -163,7 +163,7 @@ object CheckCommand "check_trassir" {
 Once the necessary Service and CheckCommand definitions are in place (see above), monitoring is enabled through host variables.
 
 #### Server Host Configuration
-Add Trassir credentials and connection details to the DVR host object:
+*Add Trassir credentials and connection details to the DVR host object:*
 
 ```icinga
 object Host "TS7" {
@@ -176,9 +176,10 @@ object Host "TS7" {
 }
 
 ```
-#### Camera Host Configuration
 
-Link the camera to the server using the vars.server variable and define channel parameters:
+#### Camera Host Configuration
+*Link the camera to the server using the vars.server variable and define channel parameters:*
+
 ```icinga
 object Host "Cam 1.12" {
   import "iot-host"
@@ -190,7 +191,7 @@ object Host "Cam 1.12" {
 
 ```
 
-> **NOTE:** Variable 'channel' refers to the channel name in Trassir. 'hours' variable sets how far in the past to search for archive activity. If no activity is detected within that period, a warning is triggered.
+> **NOTE:** variable 'channel' refers to the channel name substring used in Trassir, the plugin will select the matching archive timeline based on partial match (includes), not strict equality. The 'hours' variable sets how far in the past to search for archive activity. If no activity is detected within that period, a warning is triggered.
 
 #### How It Works
 
