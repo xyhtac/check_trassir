@@ -2,6 +2,8 @@
 
 This plugin checks the health and archive status of a Trassir NVR system via its public API. It supports both **server health mode** and **channel archive analysis mode**, compatible with **Nagios** and **Icinga2**.
 
+[![check_trassir-1.1](https://img.shields.io/badge/dev-check_trassir_1.1-7a00b9)](https://github.com/xyhtac/check_trassir/releases/tag/v.1.1)
+
 ---
 
 ### Dependencies
@@ -174,12 +176,24 @@ See the [LICENSE](./LICENSE) file for full terms and conditions.
 This plugin is developed independently and is based on the publicly available **Trassir API SDK**, as documented at:
 https://trassir.com/software-updates/manual/sdk.html
 
-```
+
 Please be aware of:
 - The Trassir API SDK is subject to change without prior notice by its maintainers. This may impact the compatibility or functionality of this plugin in the future.
 - This project is **not affiliated with, endorsed by, or officially supported by DSSL or Trassir**.
 - "Trassir" and its associated logos and trademarks are the **intellectual property of DSSL** (https://www.dssl.ru/). All rights to those names and marks are reserved by their respective owners.
 - The authors of this plugin **make no guarantees regarding its fitness** for any particular purpose and **are not liable for any damages** resulting from its use.
-```
+
+### Bugs and feature requests
+
+Please report bugs [here on Github](https://github.com/xyhtac/check_trassir/issues).
+Guidelines for bug reports:
+1. Use the GitHub issue search — check if the issue has already been reported.
+2. Check if the issue has been fixed — try to reproduce it using the latest master or development branch in the repository.
+3. Isolate the problem — create a reduced test case and a live example. 
+
+A good bug report shouldn't leave others needing to chase you up for more information.
+Please try to be as detailed as possible in your report.
+Feature requests are welcome. Please look for existing ones and use GitHub's "reactions" feature to vote.
+
 
 ---
