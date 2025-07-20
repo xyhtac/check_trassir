@@ -11,7 +11,7 @@ This plugin checks the health and archive status of a Trassir NVR system via its
 #### Channel Archive Check:
 [![check_trassir performs channel check](img/check-trassir-archive.jpg)](img/check-trassir-archive.jpg "Screenshot - Channel check mode")
 
-channel mode usage example:
+> channel mode usage example:
 ```bash
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password --channel Camera-1 --hours 8 --timezone 3
 ```
@@ -19,7 +19,7 @@ channel mode usage example:
 #### Server Health Check:
 [![check_trassir performs channel check](img/check-trassir-server.jpg)](img/check-trassir-server.jpg "Screenshot - Channel trassir server")
 
-server mode usage example:
+> server mode usage example:
 ```bash
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
 ```
