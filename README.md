@@ -159,6 +159,47 @@ object CheckCommand "check_trassir" {
 }
 ```
 
+Once the necessary Service and CheckCommand definitions are in place (see above), monitoring is enabled through host variables.
+
+#### Server Host Configuration
+Add Trassir credentials and connection details to the DVR host object:
+
+```icinga
+object Host "TS7" {
+  import "generic-host"
+  address = "10.0.1.1"
+  vars.trassir["username"] = "username"
+  vars.trassir["password"] = "secret_password"
+  vars.trassir["port"] = "8080"
+  vars.trassir["timezone"] = "3"
+}
+
+```
+#### Camera Host Configuration
+
+Link the camera to the server using the vars.server variable and define channel parameters:
+```icinga
+object Host "Cam 1.12" {
+  import "iot-host"
+  address = "10.0.1.12"
+  vars.server = "TS7"  // Link to Server hostname
+  vars.trassir["channel"] = "1.12"
+  vars.trassir["hours"] = "8"
+}
+
+```
+
+> **NOTE:** Variable 'channel' refers to the channel name in Trassir. 'hours' variable sets how far in the past to search for archive activity. If no activity is detected within that period, a warning is triggered.
+
+#### How It Works
+
+- Trassir server check is automatically assigned to DVR hosts where login credentials are set. 
+- Archive channel check is automatically created for any camera host that defines 'vars.server' and 'vars.trassir["channel"]'.
+- All variables from the DVR host are inherited via the 'vars.server' reference.
+
+No manual service assignment is needed - Icinga handles service linkage dynamically based on these variables.
+
+
 Don't forget to **restart Icinga2**:
 
 ```bash
