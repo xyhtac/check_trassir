@@ -1,17 +1,34 @@
 #!/usr/bin/php
 <?php
 
-
 /*
 
-// Trassir archive checker
+Icinga Plugin Script (Check Command). Check Trassir CCTV server health and channel (camera) archive via Trassir API.
+https://github.com/xyhtac/check_trassir/
+Max.Fischer <dev@monologic.ru>
+Tested with Debian GNU/Linux 12 (bookworm) with Icinga v2.14.6
+
+supposed to be placed in nagios plugins directory, i.e.:
+/usr/lib/nagios/plugins/check_trassir.php - CHMOD 755
+
+
+Check channel example:
+./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password --channel Camera-1 --hours 8 --timezone 3
+
+Check server example:
+./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
+
+if --channel is undefined the checker runs in server mode.
+
+
+// ICINGA CONFIG DEFINITIONS:
+// Trassir archive channel checker.
+//===========================
 apply Service "check-trassir-archive" {
   import "generic-service"
-
   check_interval = 30m
   retry_interval = 3m
   check_timeout = 1m
-
   // Get the upstream server by name (from the IoT device var 'server')
   vars.server_host = get_host(host.vars.server)
   // Shared server-side trassir vars
@@ -21,10 +38,8 @@ apply Service "check-trassir-archive" {
   vars.username = vars.server_host.vars.trassir["username"]
   vars.password = vars.server_host.vars.trassir["password"]
   vars.trassir_archive_checker = true
-
   // IoT-specific trassir vars
   vars.channel = host.vars.trassir["channel"]
-
   // Use default 24 hours if not defined on IoT device
   vars.hours = ""
   if (host.vars.trassir["hours"] != null && host.vars.trassir["hours"] != "") {
@@ -32,7 +47,6 @@ apply Service "check-trassir-archive" {
   } else {
 	vars.hours = "24"
   }
-
   enable_perfdata = true
   check_command = "check_trassir"
   assign where host.vars.trassir["channel"] && host.vars.server
@@ -48,18 +62,15 @@ apply Dependency "mute-check-trassir-archive-if-server-down" to Service {
 // =======================
 apply Service "check-trassir-server" {
   import "generic-service"
-
   check_interval = 10m
   retry_interval = 3m
   check_timeout = 1m
-
   vars.host = host.address
   vars.port = host.vars.trassir["port"]
   vars.timezone = host.vars.trassir["timezone"]
   vars.username = host.vars.trassir["username"]
   vars.password = host.vars.trassir["password"]
   vars.trassir_server_checker = true
-
   enable_perfdata = true
   check_command = "check_trassir"
   assign where host.vars.trassir["username"] && host.vars.trassir["password"]
@@ -82,7 +93,6 @@ object CheckCommand "check_trassir" {
   }
   vars.enable_perfdata = true
 }
-
 
 
 */
@@ -486,10 +496,6 @@ if ($last_event_ts >= $threshold_event_ts) {
     echo "WARNING: No timeline events found in last $hours hours timespan. | $perfdata\n";
     exit(1);
 }
-
-
-
-
 
 
 
