@@ -24,7 +24,7 @@ This plugin checks the health and archive status of a Trassir NVR system via its
 ./check_trassir.php --host 10.0.1.1 --port 8080 --username username --password secret_password
 ```
 
-> **_NOTE:_** Use the `--channel` argument to switch between modes.  If omitted, plugin runs in **server mode**. Use '--debug 1' to get detailed API output.
+> **_NOTE:_** Use the `--channel` argument to switch between modes.  If omitted, plugin runs in **server mode**. Use `--debug 1` to get detailed API output.
 
 ---
 
@@ -179,7 +179,7 @@ object Host "TS7" {
 
 
 #### Camera Host Configuration
-*Link the camera to the server using the vars.server variable and define channel parameters:*
+*Link the camera to the server using the `vars.server` variable and define channel parameters:*
 
 ```icinga
 object Host "Cam 1.12" {
