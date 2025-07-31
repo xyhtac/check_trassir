@@ -557,6 +557,9 @@ function curl_get_clean_json($url) {
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Connection: close'
+    ]);
 
     // For self-signed certificates, since you're using HTTPS with IPs
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
